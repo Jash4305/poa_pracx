@@ -26,8 +26,8 @@ def optimal_page_replacement(page_references, num_frames):
     return page_faults
 
 # hit = 3 miss = 9 frames = 3
-page_references = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 3]
-num_frames = 4
+page_references = list("701203042303120")
+num_frames = 3
 print("Page : ", page_references, "\nPage Frames : ", num_frames)
 
 page_fault = optimal_page_replacement(page_references, num_frames)
