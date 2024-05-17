@@ -15,19 +15,18 @@ def worst_fit(blocks, processes):
 
     return allocation
 
-def main():
-    processes = [212, 417, 112, 426]  
-    blocks = [100, 200, 300, 400]  
 
-    allocation = worst_fit(blocks, processes)
+processes = [212, 417, 112, 426]  
+blocks = [100, 200, 300, 400]  
 
-    print("Process No. \t Process Size \t Block No.")
-    for i in range(len(processes)):
-        print(i+1, "\t\t", processes[i], "\t\t", end="")
-        if allocation[i] != -1:
-            print(allocation[i] + 1)
-        else:
-            print("Not Allocated")
+allocation = worst_fit(blocks, processes)
 
-if __name__ == "__main__":
-    main()
+print("Process No. \t Process Size \t Block No.")
+for i in range(len(processes)):
+    print(i+1, "\t\t", processes[i], "\t\t", end="")
+    if allocation[i] != -1:
+        print(allocation[i] + 1)
+    else:
+        print("Not Allocated")
+
+
