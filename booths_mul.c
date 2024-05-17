@@ -28,13 +28,14 @@ void shiftRight(int *c, int a[], int q[]) {
     
     for(int i = BITNUM - 1; i > 0; i--)
         a[i] = a[i-1];
+        
     a[0] = *c;
     *c = 0;
 }
 
 void boothMultiplication(int m[], int q[]) {
-    int a[BITNUM] = {0}; // init a = 0
-    int carry = 0; // init carry = 0
+    int a[BITNUM] = {0};
+    int carry = 0; 
 
     printf("C\t   A\t\t   Q\t\tcount\n");
     printf("%d\t", carry);
@@ -44,8 +45,7 @@ void boothMultiplication(int m[], int q[]) {
     printf("\tInitial Value\n");
 
     for(int i = 0; i < BITNUM; i++) {
-        //     0 1 2  3
-        // q = 1 1 0 [1]
+    
         if(q[BITNUM-1] == 1) {
 
             carry = addition(m, a, a); 
