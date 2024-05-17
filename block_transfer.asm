@@ -1,30 +1,28 @@
-data segment
-    str1 db 10, 20, 30
-data ends
+DATA SEGMENT
+    STR1 DB 1, 2, 3, 4, 5
+DATA ENDS
 
-extra segment
-    str2 db ?
-extra ends
+EXTRA SEGMENT
+    STR2 DB ?
+EXTRA ENDS
 
-code segment
-    assume: cs:code, ds: data, es: extra
-    start:
-    mov ax, data
-    mov ds, ax
-    mov ax, extra
-    mov es, ax
-    
-    mov cl, 03h
-    lea si, str1
-    lea di, str2
-    
-x:  mov AH, ds:[si]
-    mov es:[di], AH
-    inc si
-    inc di
-    dec cl
-    jnz x
-code ends
-end start
-    
-    
+CODE SEGMENT
+    ASSUME CS: CODE, DS: DATA, ES: EXTRA
+    START:
+        MOV AX, DATA
+        MOV DS, AX
+        MOV AX, EXTRA
+        MOV ES, AX
+        LEA SI, STR1
+        LEA DI, STR2
+        MOV CL, 05H
+        MOV AX, 0000H
+        X:
+            MOV AL, DS:[SI]
+            MOV ES:[DI], AL
+            INC DI
+            INC SI
+            DEC CL
+            JNZ X
+CODE ENDS
+END START
